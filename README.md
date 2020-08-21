@@ -1,2 +1,2 @@
 # protos
-Protobuf definitions
+Protobuf definitions for gardenzilla microservices
