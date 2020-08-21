@@ -37,7 +37,10 @@ message LoginRequest {
   string password = 2;
 }
 
-message LoginResponse { bool is_valid = 1; }
+message LoginResponse {
+  bool is_valid = 1;
+  string name = 2;
+}
 
 message NewPasswordRequest {
   string userid = 1;
