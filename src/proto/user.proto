@@ -26,6 +26,8 @@ service User {
   rpc IsUser(IsUserRequest) returns (IsUserResponse);
   // ResetPassword -> Email::send(!)
   rpc ResetPassword(ReserPasswordRequest) returns (ReserPasswordResponse);
+  // Set new password
+  rpc SetNewPassword(NewPasswordRequest) returns (NewPasswordResponse);
   // Validate login request
   rpc ValidateLogin(LoginRequest) returns (LoginResponse);
 }
@@ -37,10 +39,14 @@ message LoginRequest {
 
 message LoginResponse { bool is_valid = 1; }
 
-message ReserPasswordRequest {
+message NewPasswordRequest {
   string userid = 1;
   string new_password = 2;
 }
+
+message NewPasswordResponse {}
+
+message ReserPasswordRequest { string userid = 1; }
 
 message ReserPasswordResponse {}
 
