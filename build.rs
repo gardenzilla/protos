@@ -1,6 +1,7 @@
 fn main() -> Result<(), Box<dyn std::error::Error>> {
-    tonic_build::configure()
-        .out_dir("src/proto/")
-        .compile(&["src/proto/user.proto"], &["src/proto"])?;
+    tonic_build::configure().out_dir("src/proto/").compile(
+        &["src/proto/user.proto", "src/proto/email.proto"],
+        &["src/proto"],
+    )?;
     Ok(())
 }
