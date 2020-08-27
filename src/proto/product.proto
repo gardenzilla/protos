@@ -27,9 +27,10 @@ message ProductObj {
 }
 
 message ProductUpdateObj {
-  string name = 1;
-  string quantity = 2;
-  string unit = 3;
+  string sku = 1;
+  string name = 2;
+  string quantity = 3;
+  string unit = 4;
 }
 
 message CreateNewRequest {
