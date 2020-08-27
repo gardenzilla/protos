@@ -5,29 +5,11 @@ import "google/protobuf/wrappers.proto";
 import "prelude.proto";
 
 service Product {
-  /*
-   * CreateNewProduct
-   * CreateNewRequest -> CreateNewResponse
-   */
   rpc CreateNew(CreateNewRequest) returns (CreateNewResponse);
-  /*
-   * Get all products
-   * AllUserRequest -> GerAllResponse
-   */
   rpc GetAll(google.protobuf.Empty) returns (GetAllResponse);
-  /*
-   * Get Product By Id
-   * GetByIdRequest -> UserByIdResponse
-   */
   rpc GetById(GetByIdRequest) returns (GetByIdResponse);
-  /*
-   * Update Product By ID
-   * UpdateByIdRequest -> UpdateUserReply
-   */
   rpc UpdateById(UpdateByIdRequest) returns (UpdateByIdResponse);
-  // rpc CheckUserExist(google.protobuf.Empty) returns (google.protobuf.Empty);
   rpc isSku(IsSkuRequest) returns (IsSkuResponse);
-  rpc demo(IsSkuRequest) returns (SKU);
 }
 
 message IsSkuRequest { string sku = 1; }
@@ -35,32 +17,26 @@ message IsSkuResponse { bool sku_exist = 1; }
 
 message SKU { string sku = 1; }
 
-enum Unit {
-  Piece = 0;
-  Millimeter = 1;
-  Gram = 2;
-  Milliliter = 3;
-}
-
-enum PestCategory {
-  I = 0;
-  II = 1;
-  III = 2;
-}
-
 message ProductObj {
   string sku = 1;
   string name = 2;
-  string quantity = 3; // impl Into<String> for Quantity {} & from_str()
-  string unit = 4;     // impl Into<String> for Unit {} & from_str()
-  google.protobuf.FloatValue net_retail_price = 5; // Option<f32>
-  google.protobuf.UInt32Value vat_percentage = 6;  // Option<u32>
-  google.protobuf.StringValue pest_category = 7;   // Option<String>
-  string created_by = 8; // Maybe UserId? And impl From<..> for it?
-  prelude.DateTime created_at = 9;
+  string quantity = 3;
+  string unit = 5;       // impl Into<String> for Unit {} & from_str()
+  string created_by = 9; // Maybe UserId? And impl From<..> for it?
+  prelude.DateTime created_at = 10;
 }
 
-message CreateNewRequest {}
+message ProductUpdateObj {
+  string name = 1;
+  string quantity = 2;
+  string unit = 3;
+}
+
+message CreateNewRequest {
+  string name = 1;
+  string quantity = 2;
+  string unit = 3;
+}
 
 message CreateNewResponse { ProductObj product = 1; }
 
@@ -70,6 +46,6 @@ message GetByIdRequest { string sku = 1; }
 
 message GetByIdResponse { ProductObj product = 1; }
 
-message UpdateByIdRequest { ProductObj product = 1; }
+message UpdateByIdRequest { ProductUpdateObj product = 1; }
 
 message UpdateByIdResponse { ProductObj product = 1; }
