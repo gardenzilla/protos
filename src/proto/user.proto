@@ -25,7 +25,7 @@ service User {
   // rpc CheckUserExist(google.protobuf.Empty) returns (google.protobuf.Empty);
   rpc IsUser(IsUserRequest) returns (IsUserResponse);
   // ResetPassword -> Email::send(!)
-  rpc ResetPassword(ReserPasswordRequest) returns (ReserPasswordResponse);
+  rpc ResetPassword(ResetPasswordRequest) returns (ResetPasswordResponse);
   // Set new password
   rpc SetNewPassword(NewPasswordRequest) returns (NewPasswordResponse);
   // Validate login request
@@ -49,9 +49,9 @@ message NewPasswordRequest {
 
 message NewPasswordResponse {}
 
-message ReserPasswordRequest { string userid = 1; }
+message ResetPasswordRequest { string userid = 1; }
 
-message ReserPasswordResponse {}
+message ResetPasswordResponse {}
 
 message IsUserRequest { string userid = 1; }
 message IsUserResponse { bool user_exist = 1; }
