@@ -46,7 +46,7 @@ message CreateNewRequest {
   string tax_number = 4;
   string zip = 5;
   string location = 6;
-  string address = 7;
+  Address address = 7;
   string created_by = 8;
 }
 
