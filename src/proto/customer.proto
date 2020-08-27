@@ -1,0 +1,79 @@
+syntax = "proto3";
+package customer;
+import "google/protobuf/empty.proto";
+import "prelude.proto";
+
+service Customer {
+  rpc CreateNew(CreateNewRequest) returns (CreateNewResponse);
+  rpc GetAll(google.protobuf.Empty) returns (GetAllResponse);
+  rpc GetById(GetByIdRequest) returns (GetByIdResponse);
+  rpc UpdateById(UpdateByIdRequest) returns (UpdateByIdResponse);
+  rpc AddUser(AddUserRequest) returns (AddUserResponse);
+  rpc RemoveUser(RemoveUserRequest) returns (RemoveUserResponse);
+}
+
+message Address {
+  string zip = 1;
+  string location = 2;
+  string address = 3;
+}
+
+message CustomerObj {
+  string id = 1;
+  prelude.DateTime date_created = 2;
+  string created_by = 3;
+  string name = 4;
+  Address address = 5;
+  string email = 6;
+  string phone = 7;
+  string tax_number = 8;
+  bool has_user = 9;
+  repeated string users = 10;
+}
+
+message CustomerUpdateObj {
+  string name = 4;
+  Address address = 5;
+  string email = 6;
+  string phone = 7;
+  string tax_number = 8;
+}
+
+message CreateNewRequest {
+  string name = 1;
+  string email = 2;
+  string phone = 3;
+  string tax_number = 4;
+  string zip = 5;
+  string location = 6;
+  string address = 7;
+}
+
+message CreateNewResponse { CustomerObj customer = 1; }
+
+message GetAllResponse { repeated CustomerObj customers = 1; }
+
+message GetByIdRequest { string customer_id = 1; }
+
+message GetByIdResponse { CustomerObj customer = 1; }
+
+message UpdateByIdRequest {
+  string customer_id = 1;
+  CustomerUpdateObj customer = 2;
+}
+
+message UpdateByIdResponse { CustomerObj customer = 1; }
+
+message AddUserRequest {
+  string customer_id = 1;
+  string user_id = 2;
+}
+
+message AddUserResponse { CustomerObj customer = 1; }
+
+message RemoveUserRequest {
+  string customer_id = 1;
+  string user_id = 2;
+}
+
+message RemoveUserResponse { CustomerObj customer = 1; }
