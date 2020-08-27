@@ -20,15 +20,15 @@ message Address {
 
 message CustomerObj {
   string id = 1;
-  prelude.DateTime date_created = 2;
-  string created_by = 3;
-  string name = 4;
-  Address address = 5;
-  string email = 6;
-  string phone = 7;
-  string tax_number = 8;
-  bool has_user = 9;
-  repeated string users = 10;
+  string name = 2;
+  string email = 3;
+  string phone = 4;
+  string tax_number = 5;
+  Address address = 6;
+  bool has_user = 7;
+  repeated string users = 8;
+  prelude.DateTime date_created = 9;
+  string created_by = 10;
 }
 
 message CustomerUpdateObj {
