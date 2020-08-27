@@ -47,6 +47,7 @@ message CreateNewRequest {
   string zip = 5;
   string location = 6;
   string address = 7;
+  string created_by = 8;
 }
 
 message CreateNewResponse { CustomerObj customer = 1; }
