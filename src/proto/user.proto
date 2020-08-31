@@ -11,7 +11,7 @@ service User {
    * Get all users
    * AllUserRequest -> GerAllResponse
    */
-  rpc GetAll(google.protobuf.Empty) returns (GetAllResponse);
+  rpc GetAll(google.protobuf.Empty) returns (stream GetAllResponse);
   /*
    * Get User By Id
    * GetByIdRequest -> UserByIdResponse

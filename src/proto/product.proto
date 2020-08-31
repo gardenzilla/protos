@@ -10,6 +10,7 @@ service Product {
   rpc GetById(GetByIdRequest) returns (GetByIdResponse);
   rpc UpdateById(UpdateByIdRequest) returns (UpdateByIdResponse);
   rpc isSku(IsSkuRequest) returns (IsSkuResponse);
+  rpc UpdateStock(UpdateStockRequest) returns (GetByIdResponse);
 }
 
 message IsSkuRequest { string sku = 1; }
@@ -21,7 +22,8 @@ message ProductObj {
   string sku = 1;
   string name = 2;
   string quantity = 3;
-  string unit = 5;       // impl Into<String> for Unit {} & from_str()
+  string unit = 5; // impl Into<String> for Unit {} & from_str()
+  float stock = 6;
   string created_by = 9; // Maybe UserId? And impl From<..> for it?
   prelude.DateTime created_at = 10;
 }
@@ -51,3 +53,8 @@ message GetByIdResponse { ProductObj product = 1; }
 message UpdateByIdRequest { ProductUpdateObj product = 1; }
 
 message UpdateByIdResponse { ProductObj product = 1; }
+
+message UpdateStockRequest {
+  string sku = 1;
+  float stock_change = 2;
+}
