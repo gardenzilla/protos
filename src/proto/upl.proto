@@ -13,26 +13,27 @@ service UplStore {
 message UplByPlaceRequest {}
 
 message Upl {
-  uint32 id = 1;
-  string sku = 4;
+  uint64 id = 1;
+  uint32 sku = 4;
   // ...
   repeated UplHistoryItem location_history = 5;
-  string created_by = 2;
-  string date_created = 3;
+  uint32 created_by = 2;
+  int64 date_created = 3;
 }
 
 message UplHistoryItem {
   string location = 1;
   string id = 2;
   string date_created = 3;
-  string created_by = 4;
+  uint32 created_by = 4;
 }
 
 message CreateNewRequest {
   uint32 id = 1;
-  string sku = 2;
-  string created_by = 3;
-  string date_created = 4;
+  // ..
+  uint32 sku = 2;
+  uint32 created_by = 3;
+  int64 date_created = 4;
 }
 
 message CreateNewResponse { Upl upl = 1; }

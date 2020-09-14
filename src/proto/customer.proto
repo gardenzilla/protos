@@ -10,6 +10,9 @@ service Customer {
   rpc UpdateById(UpdateByIdRequest) returns (UpdateByIdResponse);
   rpc AddUser(AddUserRequest) returns (AddUserResponse);
   rpc RemoveUser(RemoveUserRequest) returns (RemoveUserResponse);
+  // Lookup customer by alias
+  // We use customer id internally, but alias outside
+  rpc Lookup(LookupRequest) returns (LookupResponse);
 }
 
 message Address {
@@ -19,20 +22,20 @@ message Address {
 }
 
 message CustomerObj {
-  string id = 1;
+  uint32 id = 1;
   string name = 2;
   string email = 3;
   string phone = 4;
   string tax_number = 5;
   Address address = 6;
   bool has_user = 7;
-  repeated string users = 8;
-  prelude.DateTime date_created = 9;
-  string created_by = 10;
+  repeated uint32 users = 8;
+  int64 date_created = 9;
+  uint32 created_by = 10;
 }
 
 message CustomerUpdateObj {
-  string id = 1;
+  uint32 id = 1;
   string name = 4;
   Address address = 5;
   string email = 6;
@@ -48,7 +51,7 @@ message CreateNewRequest {
   string zip = 5;
   string location = 6;
   string address = 7;
-  string created_by = 8;
+  uint32 created_by = 8;
 }
 
 message CreateNewResponse { CustomerObj customer = 1; }
@@ -60,22 +63,26 @@ message GetByIdRequest { string customer_id = 1; }
 message GetByIdResponse { CustomerObj customer = 1; }
 
 message UpdateByIdRequest {
-  string customer_id = 1;
+  uint32 customer_id = 1;
   CustomerUpdateObj customer = 2;
 }
 
 message UpdateByIdResponse { CustomerObj customer = 1; }
 
 message AddUserRequest {
-  string customer_id = 1;
-  string user_id = 2;
+  uint32 customer_id = 1;
+  uint32 user_id = 2;
 }
 
 message AddUserResponse { CustomerObj customer = 1; }
 
 message RemoveUserRequest {
-  string customer_id = 1;
-  string user_id = 2;
+  uint32 customer_id = 1;
+  uint32 user_id = 2;
 }
 
 message RemoveUserResponse { CustomerObj customer = 1; }
+
+message LookupRequest { string customer_alias = 1; }
+
+message LookupResponse { uint32 customer_id = 1; }

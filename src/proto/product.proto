@@ -13,23 +13,23 @@ service Product {
   rpc UpdateStock(UpdateStockRequest) returns (GetByIdResponse);
 }
 
-message IsSkuRequest { string sku = 1; }
+message IsSkuRequest { uint32 sku = 1; }
 message IsSkuResponse { bool sku_exist = 1; }
 
 message SKU { string sku = 1; }
 
 message ProductObj {
-  string sku = 1;
+  uint32 sku = 1;
   string name = 2;
   string quantity = 3;
   string unit = 5; // impl Into<String> for Unit {} & from_str()
   float stock = 6;
-  string created_by = 9; // Maybe UserId? And impl From<..> for it?
-  prelude.DateTime created_at = 10;
+  uint32 created_by = 9; // Maybe UserId? And impl From<..> for it?
+  int64 created_at = 10;
 }
 
 message ProductUpdateObj {
-  string sku = 1;
+  uint32 sku = 1;
   string name = 2;
   string quantity = 3;
   string unit = 4;
@@ -55,6 +55,6 @@ message UpdateByIdRequest { ProductUpdateObj product = 1; }
 message UpdateByIdResponse { ProductObj product = 1; }
 
 message UpdateStockRequest {
-  string sku = 1;
+  uint32 sku = 1;
   float stock_change = 2;
 }
