@@ -24,6 +24,7 @@ message Address {
 message CustomerObj {
   uint32 id = 1;
   string name = 2;
+  string alias = 11;
   string email = 3;
   string phone = 4;
   string tax_number = 5;
