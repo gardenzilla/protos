@@ -52,4 +52,7 @@ message MoveRequest {
   string to_id = 4;
 }
 
-message MoveResponse {}
+message MoveResponse {
+  string todo = 1;
+  string todo2 = 2;
+}
