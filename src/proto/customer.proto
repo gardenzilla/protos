@@ -33,6 +33,7 @@ message CustomerObj {
   repeated uint32 users = 8;
   int64 date_created = 9;
   uint32 created_by = 10;
+  // next = 11;;
 }
 
 message CustomerUpdateObj {
