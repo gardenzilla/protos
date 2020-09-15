@@ -63,6 +63,7 @@ message AllUserRequest {}
 
 message UserObj {
   uint32 id = 1;
+  string alias = 8;
   string name = 2;
   string email = 3;
   string phone = 4;
@@ -72,7 +73,7 @@ message UserObj {
 }
 
 message CreateNewRequest {
-  string username = 1;
+  string alias = 1;
   string email = 2;
   string name = 3;
   string phone = 4;
