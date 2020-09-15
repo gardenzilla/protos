@@ -59,7 +59,7 @@ message CreateNewResponse { CustomerObj customer = 1; }
 
 message GetAllResponse { repeated CustomerObj customers = 1; }
 
-message GetByIdRequest { string customer_id = 1; }
+message GetByIdRequest { uint32 customer_id = 1; }
 
 message GetByIdResponse { CustomerObj customer = 1; }
 
