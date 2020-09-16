@@ -52,7 +52,7 @@ message NewPasswordRequest {
 
 message NewPasswordResponse {}
 
-message ResetPasswordRequest { uint32 userid = 1; }
+message ResetPasswordRequest { string email = 1; }
 
 message ResetPasswordResponse {}
 
