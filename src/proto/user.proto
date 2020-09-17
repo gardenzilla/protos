@@ -85,8 +85,12 @@ message CreateNewRequest {
 
 message LookupObj {
   uint32 id = 1;
-  string alias = 2;
-  string name = 3;
+  LookupResult user_obj = 2;
+}
+
+message LookupResult {
+  string alias = 1;
+  string name = 2;
 }
 
 message CreateNewResponse { UserObj user = 1; }
@@ -103,7 +107,11 @@ message UpdateByIdResponse { UserObj user = 1; }
 
 message LookupRequest { uint32 user_id = 1; }
 
-message LookupResponse { LookupObj user = 1; }
+message LookupResponse {
+  uint32 uid = 1;
+  string name = 2;
+  string alias = 3;
+}
 
 message LookupBulkRequest { repeated uint32 user_ids = 1; }
 
