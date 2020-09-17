@@ -45,7 +45,7 @@ message LoginRequest {
 
 message LoginResponse {
   bool is_valid = 1;
-  string name = 2;
+  UserObj user = 3;
 }
 
 message NewPasswordRequest {
