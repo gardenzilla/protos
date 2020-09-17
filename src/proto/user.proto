@@ -115,4 +115,4 @@ message LookupResponse {
 
 message LookupBulkRequest { repeated uint32 user_ids = 1; }
 
-message LookupBulkResponse { map<uint32, LookupObj> users = 1; }
+message LookupBulkResponse { repeated LookupObj users = 1; }
