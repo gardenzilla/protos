@@ -30,9 +30,12 @@ service User {
   rpc SetNewPassword(NewPasswordRequest) returns (NewPasswordResponse);
   // Validate login request
   rpc ValidateLogin(LoginRequest) returns (LoginResponse);
-  // Lookup user by alias
+  // Lookup user by id
   // We use user id internally, but alias outside
   rpc Lookup(LookupRequest) returns (LookupResponse);
+  // Lookup users by id
+  // We use user id internally, but alias outside
+  rpc LookupBulk(LookupBulkRequest) returns (LookupBulkResponse);
 }
 
 message LoginRequest {
@@ -80,6 +83,12 @@ message CreateNewRequest {
   uint32 created_by = 5;
 }
 
+message LookupObj {
+  uint32 id = 1;
+  string alias = 2;
+  string name = 3;
+}
+
 message CreateNewResponse { UserObj user = 1; }
 
 message GetAllResponse { repeated UserObj users = 1; }
@@ -92,6 +101,10 @@ message UpdateByIdRequest { UserObj user = 1; }
 
 message UpdateByIdResponse { UserObj user = 1; }
 
-message LookupRequest { string user_alias = 1; }
+message LookupRequest { uint32 user_id = 1; }
 
-message LookupResponse { uint32 user_id = 1; }
+message LookupResponse { LookupObj user = 1; }
+
+message LookupBulkRequest { repeated uint32 user_ids = 1; }
+
+message LookupBulkResponse { repeated LookupObj users = 1; }
