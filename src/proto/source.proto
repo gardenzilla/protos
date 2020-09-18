@@ -23,14 +23,14 @@ service Source {
 message Todo {}
 
 message PriceHistory {
-  uint32 sku = 1;
+  string sku = 1;
   repeated PriceHistoryItem items = 2;
   // next:
 }
 
 message PriceHistoryItem {
   int64 date = 1;
-  uint32 created_by = 2;
+  string created_by = 2;
   uint32 net_wholesale_price = 3;
   string comment = 4;
   string kind = 5;

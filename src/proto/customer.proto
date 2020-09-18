@@ -10,9 +10,6 @@ service Customer {
   rpc UpdateById(UpdateByIdRequest) returns (UpdateByIdResponse);
   rpc AddUser(AddUserRequest) returns (AddUserResponse);
   rpc RemoveUser(RemoveUserRequest) returns (RemoveUserResponse);
-  // Lookup customer by alias
-  // We use customer id internally, but alias outside
-  rpc Lookup(LookupRequest) returns (LookupResponse);
 }
 
 message Address {
@@ -22,21 +19,21 @@ message Address {
 }
 
 message CustomerObj {
-  uint32 id = 1;
+  string id = 1;
   string name = 2;
   string email = 3;
   string phone = 4;
   string tax_number = 5;
   Address address = 6;
   bool has_user = 7;
-  repeated uint32 users = 8;
+  repeated string users = 8;
   int64 date_created = 9;
-  uint32 created_by = 10;
+  string created_by = 10;
   // next = 11;;
 }
 
 message CustomerUpdateObj {
-  uint32 id = 1;
+  string id = 1;
   string name = 4;
   Address address = 5;
   string email = 6;
@@ -52,38 +49,34 @@ message CreateNewRequest {
   string zip = 5;
   string location = 6;
   string address = 7;
-  uint32 created_by = 8;
+  string created_by = 8;
 }
 
 message CreateNewResponse { CustomerObj customer = 1; }
 
 message GetAllResponse { repeated CustomerObj customers = 1; }
 
-message GetByIdRequest { uint32 customer_id = 1; }
+message GetByIdRequest { string customer_id = 1; }
 
 message GetByIdResponse { CustomerObj customer = 1; }
 
 message UpdateByIdRequest {
-  uint32 customer_id = 1;
+  string customer_id = 1;
   CustomerUpdateObj customer = 2;
 }
 
 message UpdateByIdResponse { CustomerObj customer = 1; }
 
 message AddUserRequest {
-  uint32 customer_id = 1;
-  uint32 user_id = 2;
+  string customer_id = 1;
+  string user_id = 2;
 }
 
 message AddUserResponse { CustomerObj customer = 1; }
 
 message RemoveUserRequest {
-  uint32 customer_id = 1;
-  uint32 user_id = 2;
+  string customer_id = 1;
+  string user_id = 2;
 }
 
 message RemoveUserResponse { CustomerObj customer = 1; }
-
-message LookupRequest { string customer_alias = 1; }
-
-message LookupResponse { uint32 customer_id = 1; }
