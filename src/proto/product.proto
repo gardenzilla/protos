@@ -10,7 +10,6 @@ service Product {
   rpc GetById(GetByIdRequest) returns (GetByIdResponse);
   rpc UpdateById(UpdateByIdRequest) returns (UpdateByIdResponse);
   rpc isSku(IsSkuRequest) returns (IsSkuResponse);
-  rpc UpdateStock(UpdateStockRequest) returns (GetByIdResponse);
 }
 
 message IsSkuRequest { string sku = 1; }
