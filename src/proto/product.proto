@@ -21,8 +21,7 @@ message ProductObj {
   string sku = 1;
   string name = 2;
   string quantity = 3;
-  string unit = 5; // impl Into<String> for Unit {} & from_str()
-  float stock = 6;
+  string unit = 5;       // impl Into<String> for Unit {} & from_str()
   string created_by = 9; // Maybe UserId? And impl From<..> for it?
   string created_at = 10;
 }
