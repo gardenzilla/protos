@@ -27,7 +27,7 @@ message CustomerObj {
   Address address = 6;
   bool has_user = 7;
   repeated string users = 8;
-  int64 date_created = 9;
+  string date_created = 9;
   string created_by = 10;
   // next = 11;;
 }

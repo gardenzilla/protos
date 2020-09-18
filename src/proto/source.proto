@@ -29,7 +29,7 @@ message PriceHistory {
 }
 
 message PriceHistoryItem {
-  int64 date = 1;
+  string date = 1;
   string created_by = 2;
   uint32 net_wholesale_price = 3;
   string comment = 4;

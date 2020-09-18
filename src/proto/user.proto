@@ -65,7 +65,7 @@ message UserObj {
   string phone = 4;
   repeated string customers = 5; // This will be Vec<String>
   string created_by = 6;
-  int64 created_at = 7; // maybe datetime type?
+  string created_at = 7; // maybe datetime type?
 }
 
 message CreateNewRequest {

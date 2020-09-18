@@ -18,13 +18,13 @@ message Upl {
   // ...
   repeated UplHistoryItem location_history = 5;
   string created_by = 2;
-  int64 date_created = 3;
+  string date_created = 3;
 }
 
 message UplHistoryItem {
   string location = 1;
   string id = 2;
-  int64 date_created = 3;
+  string date_created = 3;
   string created_by = 4;
 }
 
@@ -33,7 +33,7 @@ message CreateNewRequest {
   // ..
   string sku = 2;
   string created_by = 3;
-  int64 date_created = 4;
+  string date_created = 4;
 }
 
 message CreateNewResponse { Upl upl = 1; }

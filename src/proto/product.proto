@@ -25,7 +25,7 @@ message ProductObj {
   string unit = 5; // impl Into<String> for Unit {} & from_str()
   float stock = 6;
   string created_by = 9; // Maybe UserId? And impl From<..> for it?
-  int64 created_at = 10;
+  string created_at = 10;
 }
 
 message ProductUpdateObj {
