@@ -51,8 +51,3 @@ message GetByIdResponse { ProductObj product = 1; }
 message UpdateByIdRequest { ProductUpdateObj product = 1; }
 
 message UpdateByIdResponse { ProductObj product = 1; }
-
-message UpdateStockRequest {
-  string sku = 1;
-  float stock_change = 2;
-}
