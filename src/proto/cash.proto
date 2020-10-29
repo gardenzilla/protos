@@ -1,0 +1,33 @@
+syntax = "proto3";
+package cash;
+
+service Cash {
+  rpc Purchase(PurchaseRequest) returns (PurchaseResponse);
+  rpc Transaction(TransactionRequest) returns (TransactionResponse);
+  rpc List(ListRequest) returns (ListResponse);
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
+}
+
+message TransactionRequest {
+  string created_by = 1;
+  int32 amount = 2;
+}
+
+message TransactionResponse {}
+message PurchaseRequest {}
+message PurchaseResponse {}
+message CashLogItem {
+  string date_created = 1;
+  string created_by = 2;
+  int32 amount = 3;
+  string kind = 4;
+}
+message ListRequest {
+  string from = 1;
+  string till = 2;
+}
+message ListResponse {
+  repeated CashLogItem log = 1;
+}
+message GetBalanceRequest {}
+message GetBalanceResponse {}

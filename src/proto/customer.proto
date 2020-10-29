@@ -1,7 +1,6 @@
 syntax = "proto3";
 package customer;
 import "google/protobuf/empty.proto";
-import "prelude.proto";
 
 service Customer {
   rpc CreateNew(CreateNewRequest) returns (CreateNewResponse);

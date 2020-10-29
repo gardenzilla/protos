@@ -1,9 +1,9 @@
 syntax = "proto3";
 package product;
 import "google/protobuf/empty.proto";
-import "google/protobuf/wrappers.proto";
-import "prelude.proto";
 
+// Product Service
+// All the methods related to manage Product
 service Product {
   rpc CreateNew(CreateNewRequest) returns (CreateNewResponse);
   rpc GetAll(google.protobuf.Empty) returns (GetAllResponse);
@@ -50,4 +50,9 @@ message GetByIdResponse { ProductObj product = 1; }
 
 message UpdateByIdRequest { ProductUpdateObj product = 1; }
 
-message UpdateByIdResponse { ProductObj product = 1; }
+message UpdateByIdResponse {
+  // Product Object
+  // After an update call, it will return
+  // the updated object for validation
+  ProductObj product = 1;
+}
