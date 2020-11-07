@@ -1,0 +1,26 @@
+syntax = "proto3";
+package product2;
+
+message e {}
+
+service CartService {
+  rpc CreateNew(e) returns (e);
+  rpc GetAllByOwner(e) returns (e);
+  rpc GetById(e) returns (e);
+  rpc AddCustomer(e) returns (e);
+  rpc AddUpl(e) returns (e);
+  rpc AddSku(e) returns (e);
+  rpc RemoveUpl(e) returns (e);
+  rpc RemoveSku(e) returns (e);
+  rpc UpdateSku(e) returns (e);
+  rpc SetDiscount(e) returns (e);
+  rpc RemoveCustomer(e) returns (e);
+  rpc ValidateCart(e) returns (e);
+  rpc SetDocument(e) returns (e);
+  rpc SetPayment(e) returns (e);
+  rpc Purchase(e) returns (e);
+  rpc Remove(e) returns (e);
+  rpc SetDescription(e) returns (e);
+  rpc AssignOwner(e) returns (e);
+}
+service PurchaseService {}
