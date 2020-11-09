@@ -10,6 +10,22 @@ service UplStore {
   rpc GetByPlace(UplByPlaceRequest) returns (stream Upl);
 }
 
+message e {}
+
+service UplService {
+  rpc CreateNew(e) returns (e);
+  rpc Lock(e) returns (e);
+  rpc UnLock(e) returns (e);
+  rpc UpdateById(e) returns (e);
+  rpc UpdateBySku(e) returns (e);
+  rpc Move(e) returns (e);
+  rpc GetById(e) returns (e);
+  rpc GetAllByLocation(e) returns (e);
+  rpc SetScrapping(e) returns (e);
+  rpc RemoveScrapping(e) returns (e);
+  rpc SetScrapPrice(e) returns (e);
+}
+
 message UplByPlaceRequest {}
 
 message Upl {

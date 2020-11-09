@@ -1,26 +1,36 @@
 syntax = "proto3";
 package product2;
 
+message StockItem {
+  string stock_id = 1;
+  int32 count = 2;
+}
+
 message Product {
   string id = 1;
   string name = 2;
   string created_by = 3;
   string created_at = 4;
   repeated string variant_attr = 5;
-  // 6
+  // 11
 }
 
 message SKU {
   string id = 1;
-  string spu = 5;
-  string subname = 2;
-  string display_name = 7;
-  string packaging = 8;
-  string created_by = 3;
-  string created_at = 4;
-  Attr attr = 6;
-  bool can_devide = 9;
-  // 10
+  string spu = 2;
+  string subname = 3;
+  string display_name = 4;
+  string packaging = 5;
+  float price_retail_net = 6;
+  float price_retail_gross = 7;
+  string price_vat = 8;
+  repeated StockItem stock = 9;
+  bool managed_by_upl = 10;
+  string created_by = 11;
+  string created_at = 12;
+  Attr attr = 13; 
+  bool can_devide = 14;
+  // 15
 }
 
 // Attr:
